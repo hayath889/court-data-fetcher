@@ -1,0 +1,22 @@
+<h2>Case Info</h2>
+
+<h3>Parties</h3>
+<ul>
+  {% for p in data.parties %}
+    <li>{{ p }}</li>
+  {% endfor %}
+</ul>
+
+<h3>Next Hearings</h3>
+<ul>
+  {% for h in data.hearings %}
+    <li>{{ h }}</li>
+  {% endfor %}
+</ul>
+
+<h3>Judgment PDFs</h3>
+<ul>
+  {% for pdf in data.pdfs %}
+    <li><a href="{{ pdf }}" target="_blank">Download PDF</a></li>
+  {% endfor %}
+</ul>
