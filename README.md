@@ -1,7 +1,7 @@
 ## Court Data Fetcher & Mini-Dashboard
 
 ### Court Targeted
-Faridabad District Court (https://districts.ecourts.gov.in/faridabad)
+[Ballari District Court](https://districts.ecourts.gov.in/ballari)
 
 ### Setup
 
