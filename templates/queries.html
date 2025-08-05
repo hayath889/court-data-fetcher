@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query Logs</title>
+</head>
+<body>
+    <h2>Logged Case Queries</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Case Type</th>
+            <th>Case Number</th>
+            <th>Filing Year</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for query in queries %}
+        <tr>
+            <td>{{ query[0] }}</td>
+            <td>{{ query[1] }}</td>
+            <td>{{ query[2] }}</td>
+            <td>{{ query[3] }}</td>
+            <td>{{ query[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br><a href="/">Go Back to Home</a>
+</body>
+</html>
