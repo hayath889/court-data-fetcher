@@ -1,12 +1,123 @@
-<form method="POST" action="/fetch">
-  <label>Case Type</label>
-  <input type="text" name="case_type" required>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Court Data Fetcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
 
-  <label>Case Number</label>
-  <input type="text" name="case_number" required>
+        .container {
+            background: #fff;
+            padding: 30px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
 
-  <label>Filing Year</label>
-  <input type="text" name="filing_year" required>
+        h2, h3 {
+            text-align: center;
+            color: #333;
+        }
 
-  <button type="submit">Fetch Case</button>
-</form>
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .results li {
+            background: #f9f9f9;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .top-button {
+            text-align: right;
+            margin-bottom: 15px;
+        }
+
+        .top-button form {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-button">
+            <form action="/queries">
+                <button type="submit">🧾 View Query Logs</button>
+            </form>
+        </div>
+
+        <h2>Court Data Fetcher</h2>
+        <form method="POST">
+            <label>Case Type:</label>
+            <input type="text" name="case_type" required>
+
+            <label>Case Number:</label>
+            <input type="text" name="case_number" required>
+
+            <label>Filing Year:</label>
+            <input type="text" name="filing_year" required>
+
+            <button type="submit">Fetch</button>
+        </form>
+
+        {% if result %}
+            <div class="results">
+                <h3>Entered Case Info</h3>
+                <ul>
+                    <li><strong>Case Type:</strong> {{ case_type }}</li>
+                    <li><strong>Case Number:</strong> {{ case_number }}</li>
+                    <li><strong>Filing Year:</strong> {{ filing_year }}</li>
+                </ul>
+
+                <h3>Scraped Case Details</h3>
+                <ul>
+                    <li><strong>Parties:</strong> {{ result.parties }}</li>
+                    <li><strong>Filing Date:</strong> {{ result.filing_date }}</li>
+                    <li><strong>Next Hearing:</strong> {{ result.next_hearing }}</li>
+                    <li><strong>Latest Order:</strong> 
+                        {% if result.order_pdf %}
+                            <a href="{{ result.order_pdf }}" target="_blank">Download PDF</a>
+                        {% else %}
+                            Not Available
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
