@@ -29,7 +29,7 @@ This is a simple Flask web app that allows users to enter court case details (ca
 1. *Clone the repository*
 
 bash
-git clone https://github.com/mohammedsohail45/court-dashboard.git
+git clone https://github.com/hayath889/court-data-fetcher
 cd court-dashboard
 
 
@@ -52,7 +52,7 @@ bash
 python app.py
 
 
-Visit: http://127.0.0.1:5000
+Visit: http://127.0.0.1:5000/
 
 ## 📂 Project Structure
 
@@ -64,7 +64,7 @@ court-dashboard/
 ├── log_query.py         # Logging logic using SQLite
 ├── templates/
 │   ├── index.html       # Main form + results page
-│   └── queries.html     # Query logs
+│   └── result.html     # Query logs
 ├── static/              # (Optional for CSS/images)
 ├── requirements.txt     # Python dependencies
 └── README.md            # Project overview
@@ -89,6 +89,6 @@ court-dashboard/
 ## 📬 Contact
 
 For questions or suggestions:
-📧 [mohammedsohail45@yourmail.com](mailto:mohdsohail96638@gmail.com)
+📧 [dadahayath94@gmail.com](mailto:dadahayath94@gmail.com)
 
 ---
